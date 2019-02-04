@@ -1,0 +1,3 @@
+.option                     no_random_encounters.txt
+.option                     fast_text_speed.txt
+.patch                      instant_start.txt
