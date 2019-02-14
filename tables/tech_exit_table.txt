@@ -2,3 +2,7 @@ byte_59,1
 x,2
 byte_5a,1
 y,2
+byte_7a,1
+x2,2
+byte_7b,1
+y2,2

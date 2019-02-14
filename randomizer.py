@@ -107,14 +107,20 @@ class TechExitObject(TableObject):
     def cleanup(self):
         self.x = self.new_entrance.old_exit.old_data['x']
         self.y = self.new_entrance.old_exit.old_data['y']
+        self.x2 = self.new_entrance.old_exit.old_data['x2']
+        self.y2 = self.new_entrance.old_exit.old_data['y2']
         assert self.old_data['byte_59'] == self.byte_59 == 0x59
         assert self.old_data['byte_5a'] == self.byte_5a == 0x5a
+        assert self.old_data['byte_7a'] == self.byte_7a == 0x7a
+        assert self.old_data['byte_7b'] == self.byte_7b == 0x7b
 
     @classmethod
     def full_cleanup(cls):
         super(TechExitObject, cls).full_cleanup()
-        assert set((teo.x, teo.y) for teo in TechExitObject) == set(
-            (teo.old_data['x'], teo.old_data['y']) for teo in TechExitObject)
+        assert (set((teo.x, teo.y, teo.x2, teo.y2) for teo in TechExitObject)
+                == set((teo.old_data['x'], teo.old_data['y'],
+                        teo.old_data['x2'], teo.old_data['y2'])
+                       for teo in TechExitObject))
 
 
 def get_all_vanilla_items():
