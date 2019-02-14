@@ -1,0 +1,175 @@
+.def silversword 044e
+.def firesword 044f
+.def icesword 0450
+.def powersword 0453
+.def ax 0458
+.def shovel 0459
+# magic wand opens one-way paths
+# no potential for softlock because of S&Q
+.def magicwand 0464
+.def icebell 0466
+.def sunring 0467
+.def powerfan 0468
+.def elvenflute 0469
+.def skybell 046a
+.def lightstone 046b
+.def sunstone 046c
+.def starstone 046d
+.def aquastone 046e
+.def moonstone 046f
+.def lightspell 0470
+.def starspell 0471
+.def sunspell 0472
+.def aquaspell 0473
+.def moonspell 0474
+.def 5000_coins 0005
+
+.def sword 044e|044f|0450|0451|0452|0453
+.def weapon sword|0455|0456|0458
+.def armor 045b|045c|045d
+.def shield 0460|0461|0462
+
+.def shove 047d
+.def upjab 047e&sword
+.def downjab 047f&sword
+
+.def poka *
+.def poka_isle *
+.def boa lightstone
+.def boa_isle boa&sunring
+.def sala_isle aquastone&moonstone
+.def fuwa_isle lightspell&starspell&sunspell&aquaspell&moonspell
+
+# todo: sala_puka_warp might be blocked by high water level? Except to reach aqua switch. investigate
+.def boa_hiya_warp shove&boa_isle&shovel
+.def boa_poka_warp shove&boa_isle
+.def sala_hiya_warp shove&sala_isle&shovel
+.def sala_puka_warp shove&sala_isle&shovel
+.def fuwa_poka_warp shove&fuwa_isle&shovel
+.def fuwa_puka_warp shove&fuwa_isle&powersword&downjab
+
+.def poka_sword poka&silversword|fuwa_poka_warp
+
+.def hiya lightstone&sunstone|boa_hiya_warp&magicwand|sala_hiya_warp&magicwand
+.def hiya_isle lightstone&sunstone&icebell&shove|boa_hiya_warp&firesword&shovel|hiya_warp&magicwand&shove|sala_hiya_warp&firesword
+
+.def hiya_warp boa_hiya_warp|sala_hiya_warp
+
+.def puka_warp sala_puka_warp|fuwa_puka_warp
+.def puka aquastone|puka_warp&magicwand
+.def puka_isle aquastone&powerfan&shovel|puka_warp&magicwand&shovel
+.def puka_drained puka_isle&shovel&shove
+
+.def sala puka&moonstone
+
+.def star_zone hiya&starstone|sala
+
+.def lightswitch poka
+.def sunswitch boa_isle
+.def starswitch hiya_isle&firesword&shove|sala_hiya_warp&shove
+.def aquaswitch puka_drained|sala_puka_warp
+.def moonswitch sala_isle
+
+.def lightblocks_on lightswitch
+.def sunblocks_on *
+.def starblocks_on *
+.def aquablocks_on *
+.def moonblocks_on moonswitch
+
+.def lightblocks_off *
+.def sunblocks_off sunswitch
+.def starblocks_off starswitch
+.def aquablocks_off aquaswitch
+.def moonblocks_off *
+
+.def all_techs hiya&puka&sala&shove&upjab&downjab
+.def boss weapon|puka&powerfan&armor&shield&5000_coins
+
+lightstone_10305 poka_sword&boss
+starstone_116ec starswitch&shove&boss
+elvenflute_14159 sala_isle&shove&shovel&downjab&ax&boss
+skybell_14c5c fuwa_isle&powersword&shovel&boss
+aquastone_16d70 boa_isle&shove&icesword&boss
+moonstone_17a91 puka_isle&shove&shovel&aquaswitch&boss
+
+#poka isle: all verified
+health_18893 poka&silversword
+dagger_18b4a poka_sword
+# this life bottle can be obtained with damage boosting
+health_18d90 poka&shovel
+500c_18dd3 poka_sword&shove
+icesword_18e25 poka_sword&sunblocks_off
+1000c_18e41 poka_sword&elvenflute
+silversword_18e7b poka&lightblocks_on
+2000c_19081 poka_sword&moonblocks_on
+fireballs_1909d poka_sword&downjab
+lightspell_1911d poka_sword&elvenflute
+
+sunstone_1a961 boa&boss
+powerfan_1a9d9 puka&boss
+
+downjab_2b9ee puka
+upjab_2ba04 sala
+shove_2ba1a hiya
+
+start_2ceec *
+
+sunring_39179 star_zone
+icebell_39348 hiya&shove
+magicwand_394d7 star_zone
+shovel_39db9 hiya
+
+# hiya isle: all verified
+firesword_fb565 hiya_isle
+magic_fb581 hiya_isle&shovel|boa_hiya_warp&firesword
+health_fb59d hiya_isle&sunblocks_off
+fireshield_fb5b9 starswitch&starblocks_off
+health_fb5d5 starswitch&upjab
+health_fb5f1 shove&starblocks_off
+firearmor_fb60d starswitch
+1000c_fb629 starswitch&starblocks_on
+# can get with sala_hiya, but sala_hiya requires shove anyway
+health_fb645 starswitch&elvenflute
+starspell_fb65c starswitch&elvenflute
+
+# boa isle: all verified
+iceshield_fc7ba boa_isle
+magic_fc7d1 boa_isle&sunblocks_on
+magic_fc7e8 boa_isle&elvenflute&sunblocks_off
+1000c_fc7ff boa_isle&shovel
+icearmor_fc816 boa_isle
+2000c_fc82d boa_isle&upjab
+magic_fc844 boa_isle&downjab
+sunspell_fc894 boa_isle&elvenflute
+
+# puka isle: all verified
+500c_fd59e puka_isle&shovel&lightblocks_on
+magic_fd5b5 puka_isle&downjab
+1000c_fd5cc puka_isle&starblocks_on
+magic_fd5e3 puka_isle&upjab
+magic_fd5fa puka_drained
+health_fd611 puka_drained&shovel&aquablocks_off
+1000c_fd628 puka_isle&elvenflute
+magic_fd63f puka_isle&elvenflute
+aquaarmor_fd656 puka_isle
+thundersword_fd66d puka_isle
+aquaspell_fd684 puka_isle&elvenflute
+
+# sala isle: all verified
+health_fe613 sala_isle&shovel
+2000c_fe62a sala_isle&shovel&shove&upjab
+magic_fe641 sala_isle&starblocks_on
+crystalsword_fe658 sala_isle&shovel&downjab
+aquashield_fe66f sala_isle&shovel&lightblocks_on&sunblocks_on&starblocks_on&aquablocks_on&moonblocks_on
+magic_fe686 sala_isle&shovel&downjab&elvenflute
+magic_fe69d sala_isle&moonblocks_on
+ax_fe6b4 sala_isle&shovel&shove
+moonspell_fe704 sala_isle&shovel&elvenflute
+
+health_fef93 fuwa_isle&downjab&upjab&powersword
+5000c_fefaa fuwa_isle&moonblocks_on&starblocks_on
+magic_fefc1 fuwa_isle&powersword&lightblocks_on
+magic_fefd8 fuwa_isle&shovel
+powersword_fefef fuwa_isle&shovel
+
+final fuwa_isle&powersword&shovel&skybell&boss

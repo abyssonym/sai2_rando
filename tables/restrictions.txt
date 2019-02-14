@@ -1,0 +1,86 @@
+.def uniques 044e,044f,0450,0451,0452,0453,0454,0455,0456,0457,0458,0459,045b,045c,045d,045e,0460,0461,0462,0463,0464,0466,0467,0468,0469,046a,046b,046c,046d,046e,046f,0470,0471,0472,0473,0474
+.def commons uniques,0000,0001,0002,0003,0004,0005
+.def techniques 047d,047e,047f
+
+lightstone_10305 uniques
+starstone_116ec uniques
+elvenflute_14159 uniques
+skybell_14c5c uniques
+aquastone_16d70 uniques
+moonstone_17a91 uniques
+
+health_18893 commons
+dagger_18b4a commons
+health_18d90 commons
+500c_18dd3 commons
+icesword_18e25 commons
+1000c_18e41 commons
+silversword_18e7b commons
+2000c_19081 commons
+fireballs_1909d commons
+lightspell_1911d commons
+
+sunstone_1a961 uniques
+powerfan_1a9d9 uniques
+
+downjab_2b9ee techniques
+upjab_2ba04 techniques
+shove_2ba1a techniques
+
+start_2ceec uniques,techniques
+#start_2ceec techniques
+
+sunring_39179 uniques
+icebell_39348 uniques
+magicwand_394d7 uniques
+shovel_39db9 uniques
+
+firesword_fb565 commons
+magic_fb581 commons
+health_fb59d commons
+fireshield_fb5b9 commons
+health_fb5d5 commons
+health_fb5f1 commons
+firearmor_fb60d commons
+1000c_fb629 commons
+health_fb645 commons
+starspell_fb65c commons
+
+iceshield_fc7ba commons
+magic_fc7d1 commons
+magic_fc7e8 commons
+1000c_fc7ff commons
+icearmor_fc816 commons
+2000c_fc82d commons
+magic_fc844 commons
+sunspell_fc894 uniques
+
+500c_fd59e commons
+magic_fd5b5 commons
+1000c_fd5cc commons
+magic_fd5e3 commons
+magic_fd5fa commons
+health_fd611 commons
+1000c_fd628 commons
+magic_fd63f commons
+aquaarmor_fd656 commons
+thundersword_fd66d commons
+aquaspell_fd684 commons
+
+health_fe613 commons
+2000c_fe62a commons
+magic_fe641 commons
+crystalsword_fe658 commons
+aquashield_fe66f commons
+magic_fe686 commons
+magic_fe69d commons
+ax_fe6b4 commons
+moonspell_fe704 uniques
+
+health_fef93 commons
+5000c_fefaa commons
+magic_fefc1 commons
+magic_fefd8 commons
+powersword_fefef commons
+
+final nothing

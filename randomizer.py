@@ -7,6 +7,7 @@ from randomtools.utils import (
 from randomtools.interface import (
     get_outfile, get_seed, get_flags, get_activated_codes, activate_code,
     run_interface, rewrite_snes_meta, clean_and_write, finish_interface)
+from randomtools.itemrouter import ItemRouter
 from collections import defaultdict
 from os import path
 from time import time, sleep, gmtime
@@ -15,6 +16,13 @@ from itertools import combinations
 
 
 VERSION = 1
+
+
+def route_items():
+    ir = ItemRouter(path.join(tblpath, "requirements.txt"),
+                    path.join(tblpath, "restrictions.txt"))
+    ir.assign_everything()
+
 
 if __name__ == "__main__":
     try:
@@ -29,6 +37,14 @@ if __name__ == "__main__":
         codes = {}
 
         run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=True)
+
+        f = open(get_outfile(), 'r+b')
+        f.seek(addresses.bonus_item_address)
+        write_multi(f, 0x44d, length=2)
+        f.close()
+
+        route_items()
+
         clean_and_write(ALL_OBJECTS)
         rewrite_snes_meta("SAI2-R", VERSION, lorom=False)
 
