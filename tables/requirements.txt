@@ -108,9 +108,9 @@ lightspell_1911d poka_sword&elvenflute
 sunstone_1a961 boa&boss
 powerfan_1a9d9 puka&boss
 
-downjab_2b9ee puka
-upjab_2ba04 sala
-shove_2ba1a hiya
+downjab_2b9ef puka
+upjab_2ba05 sala
+shove_2ba1b hiya
 
 start_2ceec *
 

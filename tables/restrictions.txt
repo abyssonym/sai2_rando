@@ -23,9 +23,9 @@ lightspell_1911d commons
 sunstone_1a961 uniques
 powerfan_1a9d9 uniques
 
-downjab_2b9ee techniques
-upjab_2ba04 techniques
-shove_2ba1a techniques
+downjab_2b9ef techniques
+upjab_2ba05 techniques
+shove_2ba1b techniques
 
 start_2ceec uniques,techniques
 #start_2ceec techniques

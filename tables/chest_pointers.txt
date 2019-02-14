@@ -1,0 +1,51 @@
+18e7b 044e silversword
+fb565 044f firesword
+18e25 0450 icesword
+fd66d 0451 thundersword
+fe658 0452 crystalsword
+fefef 0453 powersword
+18b4a 0455 dagger
+1909d 0456 fireballs
+fe6b4 0458 ax
+fb60d 045b firearmor
+fc816 045c icearmor
+fd656 045d aquaarmor
+fb5b9 0460 fireshield
+fc7ba 0461 iceshield
+fe66f 0462 aquashield
+1911d 0470 thunderspell
+fb65c 0471 starspell
+fd684 0473 aquaspell
+18893 health
+18d90 health
+18dd3 500c
+18e41 1000c
+19081 2000c
+fb581 magic
+fb59d health
+fb5d5 health
+fb5f1 health
+fb629 1000c
+fb645 health
+fc7d1 magic
+fc7e8 magic
+fc7ff 1000c
+fc82d 2000c
+fc844 magic
+fd59e 500c
+fd5b5 magic
+fd5cc 1000c
+fd5e3 magic
+fd5fa magic
+fd611 health
+fd628 1000c
+fd63f magic
+fe613 health
+fe62a 2000c
+fe641 magic
+fe686 magic
+fe69d magic
+fef93 health
+fefaa 5000c
+fefc1 magic
+fefd8 magic

@@ -1,0 +1,14 @@
+39d83 0459 shovel
+394a1 0464 magicwand
+39312 0466 icebell
+39142 0467 sunring
+2fa1d 0468 powerfan
+140cb 0469 elvenflute
+14bc2 046a skybell
+1025e 046b lightstone
+2f942 046c sunstone
+11651 046d starstone
+16cd2 046e aquastone
+179f6 046f moonstone
+fc85d 0472 sunspell
+fe6cd 0474 moonspell
