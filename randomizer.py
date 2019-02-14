@@ -21,6 +21,34 @@ FIST = 0x44d
 assigned_pointers = {}
 
 
+def write_seed_info():
+    from string import uppercase, lowercase, digits
+    seed_label = str(get_seed())
+    assert len(seed_label) <= 10
+    if 'openworld' in get_activated_codes():
+        seed_label += 'W'
+    elif 'openrandom' in get_activated_codes():
+        seed_label += 'R'
+    while len(seed_label) < addresses.seed_length:
+        seed_label += ' '
+    assert len(seed_label) == addresses.seed_length
+    f = open(get_outfile(), 'r+b')
+    f.seek(addresses.seed_write_addr)
+    for c in seed_label:
+        if c in digits:
+            value = 0x01 + int(c)
+        elif c in lowercase:
+            value = lowercase.index(c) | 0x100
+        elif c in uppercase:
+            value = 0x19 + uppercase.index(c)
+        elif c == ' ':
+            value = 0x100
+        else:
+            raise Exception("Cannot write character %s." % c)
+        write_multi(f, value, length=2)
+    f.close()
+
+
 class ChestObject(TableObject):
     def cleanup(self):
         assert 0x44e <= self.item <= 0x474 or self.item <= 5
@@ -158,7 +186,7 @@ def route_items():
     gates = ['light', 'sun', 'star', 'aqua', 'moon']
     for g in gates:
         if ('openworld' in get_activated_codes()
-                or ('randomopen' in get_activated_codes()
+                or ('openrandom' in get_activated_codes()
                     and random.choice([True, False]))):
             print ("OPEN %s GATE" % g).upper()
             stone = "%sgate_down" % g
@@ -256,7 +284,7 @@ if __name__ == '__main__':
                        and g not in [TableObject]]
 
         codes = {'openworld': ['openworld'],
-                 'randomopen': ['randomopen'],
+                 'openrandom': ['openrandom'],
                  }
 
         run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=True)
@@ -268,6 +296,7 @@ if __name__ == '__main__':
 
         route_items()
 
+        write_seed_info()
         clean_and_write(ALL_OBJECTS)
         rewrite_snes_meta('SAI2-R', VERSION, lorom=False)
 
