@@ -1,0 +1,4 @@
+16801: ea ea            # open all wings
+2ce84: 01 33 4d 04 7e   # all items including spells and techs
+#2ce84: 01 17 4d 04 7e   # just equipment
+#2ce84: 01 01 4d 04 7e   # normal

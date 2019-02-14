@@ -1,0 +1,4 @@
+2ceba: 60 01 1a 01 7e   # health
+2cec0: 60 01 1e 01 7e
+2cec6: 0e 01 1c 01 7e   # magic
+2cecc: 0e 01 20 01 7e
