@@ -128,7 +128,7 @@ start_2ceec *
 sunring_39179 star_zone
 icebell_39348 hiya&shove
 magicwand_394d7 star_zone
-shovel_39db9 hiya
+shovel_39db9 puka
 
 # hiya isle: all verified
 firesword_fb565 hiya_isle
