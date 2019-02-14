@@ -22,23 +22,34 @@
 .def sunspell 0472
 .def aquaspell 0473
 .def moonspell 0474
+.def lifebottle 0000
+.def 500_coins 0002
+.def 1000_coins 0003
+.def 2000_coins 0004
 .def 5000_coins 0005
+
+.def lightgate_down lightstone
+.def sungate_down boa&sunstone
+.def stargate_down hiya&starstone
+.def aquagate_down aquastone
+.def moongate_down puka&moonstone
 
 .def sword 044e|044f|0450|0451|0452|0453
 .def weapon sword|0455|0456|0458
 .def armor 045b|045c|045d
 .def shield 0460|0461|0462
+.def durability armor&lifebottle
 
 .def shove 047d
-.def upjab 047e&sword
-.def downjab 047f&sword
+.def upjab 047e&sword&1000_coins
+.def downjab 047f&sword&500_coins
 
 .def poka *
 .def poka_isle *
-.def boa lightstone
-.def boa_isle boa&sunring
-.def sala_isle aquastone&moonstone
-.def fuwa_isle lightspell&starspell&sunspell&aquaspell&moonspell
+.def boa lightgate_down|hiya&sungate_down
+.def boa_isle boa&sunring&durability
+.def sala_isle sala&durability
+.def fuwa_isle lightspell&starspell&sunspell&aquaspell&moonspell&durability
 
 # todo: sala_puka_warp might be blocked by high water level? Except to reach aqua switch. investigate
 .def boa_hiya_warp shove&boa_isle&shovel
@@ -50,19 +61,19 @@
 
 .def poka_sword poka&silversword|fuwa_poka_warp
 
-.def hiya lightstone&sunstone|boa_hiya_warp&magicwand|sala_hiya_warp&magicwand
-.def hiya_isle lightstone&sunstone&icebell&shove|boa_hiya_warp&firesword&shovel|hiya_warp&magicwand&shove|sala_hiya_warp&firesword
+.def hiya boa&sungate_down|hiya_warp&magicwand|star_zone&stargate_down
+.def hiya_isle hiya&icebell&shove|boa_hiya_warp&firesword&shovel|hiya_warp&magicwand&shove|sala_hiya_warp&firesword
 
 .def hiya_warp boa_hiya_warp|sala_hiya_warp
 
 .def puka_warp sala_puka_warp|fuwa_puka_warp
-.def puka aquastone|puka_warp&magicwand
-.def puka_isle aquastone&powerfan&shovel|puka_warp&magicwand&shovel
+.def puka aquagate_down|puka_warp&magicwand|star_zone&moongate_down|sala&moongate_down
+.def puka_isle puka&powerfan&shovel&durability|puka_warp&magicwand&shovel&durability
 .def puka_drained puka_isle&shovel&shove
 
-.def sala puka&moonstone
+.def sala puka&moongate_down|star_zone&moongate_down
 
-.def star_zone hiya&starstone|sala
+.def star_zone hiya&stargate_down|puka&moongate_down|sala&moongate_down
 
 .def lightswitch poka
 .def sunswitch boa_isle
@@ -83,7 +94,7 @@
 .def moonblocks_off *
 
 .def all_techs hiya&puka&sala&shove&upjab&downjab
-.def boss weapon|puka&powerfan&armor&shield&5000_coins
+.def boss lifebottle&weapon|lifebottle&puka&powerfan&armor&shield&5000_coins&2000_coins
 
 lightstone_10305 poka_sword&boss
 starstone_116ec starswitch&shove&boss

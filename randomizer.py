@@ -150,22 +150,55 @@ def set_item_by_pointer(item, pointer):
 
 
 def route_items():
-    ChestObject.class_reseed('router')
+    ChestObject.class_reseed('gates')
 
     ir = ItemRouter(path.join(tblpath, 'requirements.txt'),
                     path.join(tblpath, 'restrictions.txt'))
+
+    gates = ['light', 'sun', 'star', 'aqua', 'moon']
+    for g in gates:
+        if ('openworld' in get_activated_codes()
+                or ('randomopen' in get_activated_codes()
+                    and random.choice([True, False]))):
+            print ("OPEN %s GATE" % g).upper()
+            stone = "%sgate_down" % g
+            assert stone in ir.assign_conditions
+            ir.assign_conditions[stone] = '*'
+            addr = "%s_gate_address" % g
+            assert hasattr(addresses, addr)
+            addr = getattr(addresses, addr)
+            f = open(get_outfile(), 'r+b')
+            f.seek(addr)
+            f.write('\x00')
+            f.close()
+
+    ChestObject.class_reseed('router')
     ir.assign_everything()
+    spoilers = ir.report
     for location, item in sorted(ir.assignments.items()):
         pointer = location.split('_')[-1]
         item, pointer = int(item, 0x10), int(pointer, 0x10)
         set_item_by_pointer(item, pointer)
 
     # assign health and magic upgrades
+    num_life_bottles = 2
+    if 'balance_patch.txt' in get_activated_patches():
+        num_life_bottles += 2
+    num_life_bottles += len([v for v in ir.assignments.values()
+                             if int(v, 0x10) == 0])
     health_magic = [c.old_data['item'] for c in ChestObject.every
                     if c.old_data['item'] <= 1]
-    random.shuffle(health_magic)
+    while num_life_bottles + health_magic.count(0) > 14:
+        health_magic.remove(0)
+    num_magic_pots = 1
+    num_magic_pots += len([v for v in ir.assignments.values()
+                           if int(v, 0x10) == 1])
+    while num_magic_pots + health_magic.count(0) > 14:
+        health_magic.remove(1)
+
     unused_chests = [c.pointer for c in ChestObject.every
                      if c.pointer not in assigned_pointers]
+    random.shuffle(health_magic)
     random.shuffle(unused_chests)
     for item, pointer in zip(health_magic, unused_chests):
         location = [l for l in ir.unassigned_locations
@@ -209,7 +242,7 @@ def route_items():
     for c in EventChestObject.every:
         if c.pointer not in assigned_pointers:
             set_item_by_pointer(FIST, c.pointer)
-    #print ir.report
+    #print spoilers
 
 
 if __name__ == '__main__':
@@ -222,7 +255,9 @@ if __name__ == '__main__':
                        if isinstance(g, type) and issubclass(g, TableObject)
                        and g not in [TableObject]]
 
-        codes = {}
+        codes = {'openworld': ['openworld'],
+                 'randomopen': ['randomopen'],
+                 }
 
         run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=True)
 
@@ -240,4 +275,4 @@ if __name__ == '__main__':
 
     except Exception, e:
         print 'ERROR: %s' % e
-        raw_input('Press Enter to close this program.')
+        raw_input('Press Enter to close this program. ')

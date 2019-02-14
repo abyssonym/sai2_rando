@@ -8,6 +8,7 @@ TechExitObject          tech_exit_table.txt         tech_exit_pointers.txt
 .option                     no_random_encounters.txt
 .patch                      instant_start.txt
 .patch                      space_save_patch.txt
+.patch                      balance_patch.txt
 $bonus_item_address         2ceec
 $light_gate_address         2b281
 $sun_gate_address           2b316
