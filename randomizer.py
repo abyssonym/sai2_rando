@@ -23,11 +23,14 @@ assigned_pointers = {}
 
 
 def get_open_code():
+    s = ''
+    if 'custom' in get_activated_codes():
+        s += 'C'
     if 'openworld' in get_activated_codes():
-        return 'W'
+        s += 'W'
     elif 'openrandom' in get_activated_codes():
-        return 'R'
-    return ''
+        s += 'R'
+    return s
 
 
 def get_seed_with_code():
@@ -39,7 +42,7 @@ def get_seed_with_code():
 def write_seed_info():
     from string import uppercase, lowercase, digits
     seed_label = get_seed_with_code()
-    assert len(seed_label) <= 11
+    assert len(seed_label) <= 12
     while len(seed_label) < addresses.seed_length:
         seed_label += ' '
     assert len(seed_label) == addresses.seed_length
@@ -177,7 +180,8 @@ def write_bonus_item(item):
 
 def set_item_by_pointer(item, pointer):
     assert pointer not in assigned_pointers
-    assert item <= 5 or item == FIST or item not in assigned_pointers.values()
+    #assert item <= 5 or item == FIST or item not in assigned_pointers.values()
+    assert item <= 5 or FIST <= item <= 0x047f
     assigned_pointers[pointer] = item
 
     candidates = [c for c in ChestObject if c.pointer == pointer]
@@ -203,7 +207,7 @@ def route_items():
     if 'custom' in get_activated_codes():
         custom_items = {}
         custom_filename = raw_input(
-            "Please enter a filename for custom item assignments. ")
+            'Please enter a filename for custom item assignments. ')
         f = open(custom_filename)
         for line in f:
             if '#' in line:
@@ -218,7 +222,7 @@ def route_items():
                 location, item = line
                 location = location.split('_')
                 assert len(location) >= 2
-                location = location[0] + "_" + location[-1]
+                location = location[0] + '_' + location[-1]
                 custom_items[location] = item
         ir.set_custom_assignments(custom_items)
 
@@ -341,9 +345,10 @@ if __name__ == '__main__':
                    '\n'
                    'If you would like to use either of these codes, '
                    'type it here,')
-            code = raw_input('or just press enter to continue. ')
-            if code.strip():
-                activate_code(code.strip())
+            codes = raw_input('or just press enter to continue. ')
+            for code in codes.split():
+                if code.strip():
+                    activate_code(code.strip())
             print '\n'
 
         write_bonus_item(FIST)
