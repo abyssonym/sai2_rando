@@ -55,7 +55,7 @@ def write_seed_info():
         elif c == ' ':
             value = 0x100
         else:
-            raise Exception("Cannot write character %s." % c)
+            raise Exception('Cannot write character %s.' % c)
         write_multi(f, value, length=2)
     f.close()
 
@@ -194,16 +194,38 @@ def route_items():
     ir = ItemRouter(path.join(tblpath, 'requirements.txt'),
                     path.join(tblpath, 'restrictions.txt'))
 
+    if 'custom' in get_activated_codes():
+        custom_items = {}
+        custom_filename = raw_input(
+            "Please enter a filename for custom item assignments. ")
+        f = open(custom_filename)
+        for line in f:
+            if '#' in line:
+                index = line.index('#')
+                line = line[:index]
+            line = line.strip()
+            while '  ' in line:
+                line = line.replace('  ', ' ')
+            line = line.strip()
+            line = line.split()
+            if len(line) == 2:
+                location, item = line
+                location = location.split('_')
+                assert len(location) >= 2
+                location = location[0] + "_" + location[-1]
+                custom_items[location] = item
+        ir.set_custom_assignments(custom_items)
+
     gates = ['light', 'sun', 'star', 'aqua', 'moon']
     for g in gates:
         if ('openworld' in get_activated_codes()
                 or ('openrandom' in get_activated_codes()
                     and random.choice([True, False]))):
-            print ("OPEN %s GATE" % g).upper()
-            stone = "%sgate_down" % g
+            print ('OPEN %s GATE' % g).upper()
+            stone = '%sgate_down' % g
             assert stone in ir.assign_conditions
             ir.assign_conditions[stone] = '*'
-            addr = "%s_gate_address" % g
+            addr = '%s_gate_address' % g
             assert hasattr(addresses, addr)
             addr = getattr(addresses, addr)
             f = open(get_outfile(), 'r+b')
@@ -282,10 +304,10 @@ def route_items():
         if c.pointer not in assigned_pointers:
             set_item_by_pointer(FIST, c.pointer)
 
-    spoiler_filename = "{0}_spoilers.txt".format(get_seed_with_code())
+    spoiler_filename = '{0}_spoilers.txt'.format(get_seed_with_code())
     f = open(spoiler_filename, 'w+')
-    f.write("{0}\n\n".format(get_seed_with_code()))
-    f.write(spoilers + "\n")
+    f.write('{0}\n\n'.format(get_seed_with_code()))
+    f.write(spoilers + '\n')
     f.close()
 
 
@@ -301,6 +323,7 @@ if __name__ == '__main__':
 
         codes = {'openworld': ['openworld'],
                  'openrandom': ['openrandom'],
+                 'custom': ['custom'],
                  }
 
         run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=False)
