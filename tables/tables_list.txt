@@ -4,11 +4,11 @@ EventMemoryObject       item_table.txt              event_memory_pointers.txt
 EventMessageObject      message_table.txt           event_message_pointers.txt
 TechEntranceObject      tech_entrance_table.txt     tech_entrance_pointers.txt
 TechExitObject          tech_exit_table.txt         tech_exit_pointers.txt
+.option                     balance_patch.txt
 .option                     fast_text_speed.txt
 .option                     no_random_encounters.txt
 .patch                      instant_start.txt
 .patch                      space_save_patch.txt
-.patch                      balance_patch.txt
 $seed_write_addr            c8d84
 $seed_length                c
 $bonus_item_address         2ceec

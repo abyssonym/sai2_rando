@@ -13,6 +13,7 @@ from os import path
 from time import time, sleep, gmtime
 from collections import Counter
 from itertools import combinations
+from sys import argv
 
 
 VERSION = 1
@@ -21,14 +22,24 @@ FIST = 0x44d
 assigned_pointers = {}
 
 
+def get_open_code():
+    if 'openworld' in get_activated_codes():
+        return 'W'
+    elif 'openrandom' in get_activated_codes():
+        return 'R'
+    return ''
+
+
+def get_seed_with_code():
+    seed_label = str(get_seed())
+    seed_label += get_open_code()
+    return seed_label
+
+
 def write_seed_info():
     from string import uppercase, lowercase, digits
-    seed_label = str(get_seed())
-    assert len(seed_label) <= 10
-    if 'openworld' in get_activated_codes():
-        seed_label += 'W'
-    elif 'openrandom' in get_activated_codes():
-        seed_label += 'R'
+    seed_label = get_seed_with_code()
+    assert len(seed_label) <= 11
     while len(seed_label) < addresses.seed_length:
         seed_label += ' '
     assert len(seed_label) == addresses.seed_length
@@ -270,7 +281,12 @@ def route_items():
     for c in EventChestObject.every:
         if c.pointer not in assigned_pointers:
             set_item_by_pointer(FIST, c.pointer)
-    #print spoilers
+
+    spoiler_filename = "{0}_spoilers.txt".format(get_seed_with_code())
+    f = open(spoiler_filename, 'w+')
+    f.write("{0}\n\n".format(get_seed_with_code()))
+    f.write(spoilers + "\n")
+    f.close()
 
 
 if __name__ == '__main__':
@@ -287,7 +303,19 @@ if __name__ == '__main__':
                  'openrandom': ['openrandom'],
                  }
 
-        run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=True)
+        run_interface(ALL_OBJECTS, snes=True, codes=codes, custom_degree=False)
+
+        if len(argv) <= 2:
+            print ('\nThe following codes are available.\n'
+                   'openworld  : Start with all gates lowered.\n'
+                   'openrandom : Start with random gates lowered.\n'
+                   '\n'
+                   'If you would like to use either of these codes, '
+                   'type it here,')
+            code = raw_input('or just press enter to continue. ')
+            if code.strip():
+                activate_code(code.strip())
+            print '\n'
 
         f = open(get_outfile(), 'r+b')
         f.seek(addresses.bonus_item_address)
