@@ -123,7 +123,7 @@ downjab_2b9ef puka
 upjab_2ba05 sala
 shove_2ba1b hiya
 
-start_2ceec *
+start_2cf10 *
 
 sunring_39179 star_zone
 icebell_39348 hiya&shove

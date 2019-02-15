@@ -162,8 +162,17 @@ class TechExitObject(TableObject):
                        for teo in TechExitObject))
 
 
-def get_all_vanilla_items():
-    return [c.item for c in ChestObject] + [c.item for c in EventChestObject]
+def write_bonus_item(item):
+    f = open(get_outfile(), 'r+b')
+    f.seek(addresses.bonus_item_address)
+    write_multi(f, item, length=2)
+    f.seek(addresses.bonus_item_value_address)
+    value = 1
+    # protect Fist, No Armor, No Shield, and Do Not Use
+    if item + 1 in [0x44d, 0x45a, 0x45f, 0x465]:
+        value |= 0x100
+    write_multi(f, value, length=2)
+    f.close()
 
 
 def set_item_by_pointer(item, pointer):
@@ -180,10 +189,7 @@ def set_item_by_pointer(item, pointer):
         candidates[0].item = item
         return candidates[0]
     elif pointer == addresses.bonus_item_address:
-        f = open(get_outfile(), 'r+b')
-        f.seek(pointer)
-        write_multi(f, item, length=2)
-        f.close()
+        write_bonus_item(item)
         return
     raise Exception('No suitable item location found: %x' % pointer)
 
@@ -340,11 +346,7 @@ if __name__ == '__main__':
                 activate_code(code.strip())
             print '\n'
 
-        f = open(get_outfile(), 'r+b')
-        f.seek(addresses.bonus_item_address)
-        write_multi(f, FIST, length=2)
-        f.close()
-
+        write_bonus_item(FIST)
         route_items()
 
         write_seed_info()
