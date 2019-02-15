@@ -1,0 +1,32 @@
+Super Adventure Island II Randomizer
+Version:    1
+Date:       February 14, 2019
+URL:        https://www.abyssonym.com/
+            https://www.github.com/abyssonym
+Contact:    https://twitter.com/abyssonym
+
+Special thanks to "backintheday200" for comissioning this randomizer!
+
+--- HOW TO USE ---
+    Running the randomizer:
+        Windows users may use the executable file, "sai2_rando.exe". Other users, please run "randomizer.py" using Python version 2.7.
+
+    Compatible with the following roms:
+        SAI2 NA 1.0     b4e732b3d742af1791605bcd7aa4a1c4
+
+    This randomizer has no flags! However, it has two optional codes.
+       openworld  : Start with all gates lowered.
+       openrandom : Start with random gates lowered.
+
+    Additionally, custom seeds are available using the same format as the Aria of Sorrow randomizer.
+
+--- CAUTIONARY ADVICE ---
+    Sometimes, not always, you will start with 1 item. This is meant to add a little variety to the beginning of the game, which normally has only 1 chest accessible, and that chest can only contain a few items that unlock other areas.
+    
+    Because of the difficulty in late game areas, it is recommended that you enable the balance patch to start with some extra health.
+
+    This randomizer is using a NEW EXPERIMENTAL ALGORITHM to decide item locations. Please bear with me and report any errors in the route, and consult the spoiler log if you're not sure if the seed is completable.
+
+    There may be occasions where you'll need to use the magic wand to access an area, or you'll need to save and quit to return to the starting area.
+
+    It seems like boss appearances are still linked to the item they normally drop. So, if you have that item, you will not need to fight the boss. I'm still not sure if this works as expected. This may be fixed in a later version. (if this causes problems you can try using a custom seed with the boss drops filled in with dummy items).
