@@ -26,10 +26,15 @@ def get_open_code():
     s = ''
     if 'custom' in get_activated_codes():
         s += 'C'
-    if 'openworld' in get_activated_codes():
+    elif 'openworld' in get_activated_codes():
         s += 'W'
     elif 'openrandom' in get_activated_codes():
         s += 'R'
+    else:
+        s += 'S'
+    v = "%s" % VERSION
+    assert len(v) == 1
+    s += v
     return s
 
 
