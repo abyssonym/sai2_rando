@@ -2,7 +2,7 @@
 .def firesword 044f
 .def icesword 0450
 .def powersword 0453
-.def ax 0458
+.def ax 0458|upjab
 .def shovel 0459
 # magic wand opens one-way paths
 # no potential for softlock because of S&Q
@@ -23,10 +23,10 @@
 .def aquaspell 0473
 .def moonspell 0474
 .def lifebottle 0000
-.def 500_coins 0002
+#.def 5000_coins 0005
+#.def 2000_coins 0004|5000_coins
 .def 1000_coins 0003
-.def 2000_coins 0004
-.def 5000_coins 0005
+.def 500_coins 0002|1000_coins
 
 .def lightgate_down lightstone
 .def sungate_down boa&sunstone
@@ -94,7 +94,7 @@
 .def moonblocks_off *
 
 .def all_techs hiya&puka&sala&shove&upjab&downjab
-.def boss lifebottle&weapon|lifebottle&puka&powerfan&armor&shield&5000_coins&2000_coins
+.def boss lifebottle&weapon
 
 lightstone_10305 poka_sword&boss
 starstone_116ec starswitch&shove&boss
@@ -116,7 +116,7 @@ silversword_18e78 poka&lightblocks_on
 fireballs_1909a poka_sword&downjab
 lightspell_1911a poka_sword&elvenflute
 
-sunstone_1a961 boa&boss
+sunstone_1a961 boa&lifebottle|boa&weapon
 powerfan_1a9d9 puka&boss
 
 downjab_2b9ef puka

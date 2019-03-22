@@ -323,7 +323,7 @@ def route_items():
     for u in unused_uniques:
         try:
             item = '{0:0>4x}'.format(u)
-            ir.assign_item(item, aggression=ir.aggression+1)
+            ir.assign_item(item, linearity=ir.linearity ** 2)
             location = ir.get_assigned_location(item)
             pointer = int(location.split('_')[-1], 0x10)
             set_item_by_pointer(u, pointer)
