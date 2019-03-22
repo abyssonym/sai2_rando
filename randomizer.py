@@ -16,7 +16,7 @@ from itertools import combinations
 from sys import argv
 
 
-VERSION = 1
+VERSION = 2
 FIST = 0x44d
 
 assigned_pointers = {}
