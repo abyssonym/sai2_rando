@@ -104,17 +104,17 @@ aquastone_16d70 boa_isle&shove&icesword&boss
 moonstone_17a91 puka_isle&shove&shovel&aquaswitch&boss
 
 #poka isle: all verified
-health_18893 poka&silversword
-dagger_18b4a poka_sword
+health_18890 poka&silversword
+dagger_18b47 poka_sword
 # this life bottle can be obtained with damage boosting
-health_18d90 poka&shovel
-500c_18dd3 poka_sword&shove
-icesword_18e25 poka_sword&sunblocks_off
-1000c_18e41 poka_sword&elvenflute
-silversword_18e7b poka&lightblocks_on
-2000c_19081 poka_sword&moonblocks_on
-fireballs_1909d poka_sword&downjab
-lightspell_1911d poka_sword&elvenflute
+health_18d8d poka&shovel
+500c_18dd0 poka_sword&shove
+icesword_18e22 poka_sword&sunblocks_off
+1000c_18e3e poka_sword&elvenflute
+silversword_18e78 poka&lightblocks_on
+2000c_1907e poka_sword&moonblocks_on
+fireballs_1909a poka_sword&downjab
+lightspell_1911a poka_sword&elvenflute
 
 sunstone_1a961 boa&boss
 powerfan_1a9d9 puka&boss
@@ -131,56 +131,56 @@ magicwand_394d7 star_zone
 shovel_39db9 puka
 
 # hiya isle: all verified
-firesword_fb565 hiya_isle
-magic_fb581 hiya_isle&shovel|boa_hiya_warp&firesword
-health_fb59d hiya_isle&sunblocks_off
-fireshield_fb5b9 starswitch&starblocks_off
-health_fb5d5 starswitch&upjab
-health_fb5f1 shove&starblocks_off
-firearmor_fb60d starswitch
-1000c_fb629 starswitch&starblocks_on
+firesword_fb562 hiya_isle
+magic_fb57e hiya_isle&shovel|boa_hiya_warp&firesword
+health_fb59a hiya_isle&sunblocks_off
+fireshield_fb5b6 starswitch&starblocks_off
+health_fb5d2 starswitch&upjab
+health_fb5ee shove&starblocks_off
+firearmor_fb60a starswitch
+1000c_fb626 starswitch&starblocks_on
 # can get with sala_hiya, but sala_hiya requires shove anyway
-health_fb645 starswitch&elvenflute
-starspell_fb65c starswitch&elvenflute
+health_fb642 starswitch&elvenflute
+starspell_fb659 starswitch&elvenflute
 
 # boa isle: all verified
-iceshield_fc7ba boa_isle
-magic_fc7d1 boa_isle&sunblocks_on
-magic_fc7e8 boa_isle&elvenflute&sunblocks_off
-1000c_fc7ff boa_isle&shovel
-icearmor_fc816 boa_isle
-2000c_fc82d boa_isle&upjab
-magic_fc844 boa_isle&downjab
+iceshield_fc7b7 boa_isle
+magic_fc7ce boa_isle&sunblocks_on
+magic_fc7e5 boa_isle&elvenflute&sunblocks_off
+1000c_fc7fc boa_isle&shovel
+icearmor_fc813 boa_isle
+2000c_fc82a boa_isle&upjab
+magic_fc841 boa_isle&downjab
 sunspell_fc894 boa_isle&elvenflute
 
 # puka isle: all verified
-500c_fd59e puka_isle&shovel&lightblocks_on
-magic_fd5b5 puka_isle&downjab
-1000c_fd5cc puka_isle&starblocks_on
-magic_fd5e3 puka_isle&upjab
-magic_fd5fa puka_drained
-health_fd611 puka_drained&shovel&aquablocks_off
-1000c_fd628 puka_isle&elvenflute
-magic_fd63f puka_isle&elvenflute
-aquaarmor_fd656 puka_isle
-thundersword_fd66d puka_isle
-aquaspell_fd684 puka_isle&elvenflute
+500c_fd59b puka_isle&shovel&lightblocks_on
+magic_fd5b2 puka_isle&downjab
+1000c_fd5c9 puka_isle&starblocks_on
+magic_fd5e0 puka_isle&upjab
+magic_fd5f7 puka_drained
+health_fd60e puka_drained&shovel&aquablocks_off
+1000c_fd625 puka_isle&elvenflute
+magic_fd63c puka_isle&elvenflute
+aquaarmor_fd653 puka_isle
+thundersword_fd66a puka_isle
+aquaspell_fd681 puka_isle&elvenflute
 
 # sala isle: all verified
-health_fe613 sala_isle&shovel
-2000c_fe62a sala_isle&shovel&shove&upjab
-magic_fe641 sala_isle&starblocks_on
-crystalsword_fe658 sala_isle&shovel&downjab
-aquashield_fe66f sala_isle&shovel&lightblocks_on&sunblocks_on&starblocks_on&aquablocks_on&moonblocks_on
-magic_fe686 sala_isle&shovel&downjab&elvenflute
-magic_fe69d sala_isle&moonblocks_on
-ax_fe6b4 sala_isle&shovel&shove
+health_fe610 sala_isle&shovel
+2000c_fe627 sala_isle&shovel&shove&upjab
+magic_fe63e sala_isle&starblocks_on
+crystalsword_fe655 sala_isle&shovel&downjab
+aquashield_fe66c sala_isle&shovel&lightblocks_on&sunblocks_on&starblocks_on&aquablocks_on&moonblocks_on
+magic_fe683 sala_isle&shovel&downjab&elvenflute
+magic_fe69a sala_isle&moonblocks_on
+ax_fe6b1 sala_isle&shovel&shove
 moonspell_fe704 sala_isle&shovel&elvenflute
 
-health_fef93 fuwa_isle&downjab&upjab&powersword
-5000c_fefaa fuwa_isle&moonblocks_on&starblocks_on
-magic_fefc1 fuwa_isle&powersword&lightblocks_on
-magic_fefd8 fuwa_isle&shovel
-powersword_fefef fuwa_isle&shovel
+health_fef90 fuwa_isle&downjab&upjab&powersword
+5000c_fefa7 fuwa_isle&moonblocks_on&starblocks_on
+magic_fefbe fuwa_isle&powersword&lightblocks_on
+magic_fefd5 fuwa_isle&shovel
+powersword_fefec fuwa_isle&shovel
 
 final fuwa_isle&powersword&shovel&skybell&boss

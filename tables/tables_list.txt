@@ -1,4 +1,4 @@
-ChestObject             item_table.txt              chest_pointers.txt
+ChestObject             chest_table.txt             chest_pointers.txt
 EventChestObject        item_table.txt              event_chest_pointers.txt
 EventMemoryObject       item_table.txt              event_memory_pointers.txt
 EventMessageObject      message_table.txt           event_message_pointers.txt

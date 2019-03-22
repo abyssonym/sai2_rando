@@ -69,10 +69,29 @@ def write_seed_info():
 
 
 class ChestObject(TableObject):
+    @classproperty
+    def unused_memory(self):
+        if hasattr(ChestObject, '_unused_memory'):
+            return ChestObject._unused_memory
+
+        unused_memory = set([])
+        for c in ChestObject.every:
+            if c.old_data['memory'] != c.old_data['item']:
+                unused_memory.add(c.old_data['memory'])
+
+        ChestObject._unused_memory = sorted(unused_memory)
+        return ChestObject.unused_memory
+
     def cleanup(self):
         assert 0x44e <= self.item <= 0x474 or self.item <= 5
         assert (0x44e <= self.old_data['item'] <= 0x474
                 or self.old_data['item'] <= 5)
+        if self.item <= 5:
+            self.memory = self.unused_memory.pop()
+            assert self.memory not in self.unused_memory
+        else:
+            assert 0x44e <= self.item <= 0x474
+            self.memory = self.item
 
 
 class EventChestObject(TableObject):

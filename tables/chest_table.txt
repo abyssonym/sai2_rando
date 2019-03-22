@@ -1,0 +1,3 @@
+memory,2
+unknown,1
+item,2
