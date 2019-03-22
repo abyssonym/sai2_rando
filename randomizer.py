@@ -231,22 +231,32 @@ def route_items():
                 custom_items[location] = item
         ir.set_custom_assignments(custom_items)
 
-    gates = ['light', 'sun', 'star', 'aqua', 'moon']
+    all_gates = ['light', 'sun', 'star', 'aqua', 'moon']
+    if 'openworld' in get_activated_codes():
+        gates = all_gates
+    elif 'openrandom' in get_activated_codes():
+        while True:
+            gates = []
+            for g in all_gates:
+                if random.choice([True, False]):
+                    gates.append(g)
+            if 1 <= len(gates) <= 3:
+                break
+    else:
+        gates = []
+
     for g in gates:
-        if ('openworld' in get_activated_codes()
-                or ('openrandom' in get_activated_codes()
-                    and random.choice([True, False]))):
-            print ('OPEN %s GATE' % g).upper()
-            stone = '%sgate_down' % g
-            assert stone in ir.assign_conditions
-            ir.assign_conditions[stone] = '*'
-            addr = '%s_gate_address' % g
-            assert hasattr(addresses, addr)
-            addr = getattr(addresses, addr)
-            f = open(get_outfile(), 'r+b')
-            f.seek(addr)
-            f.write('\x00')
-            f.close()
+        print ('OPEN %s GATE' % g).upper()
+        stone = '%sgate_down' % g
+        assert stone in ir.assign_conditions
+        ir.assign_conditions[stone] = '*'
+        addr = '%s_gate_address' % g
+        assert hasattr(addresses, addr)
+        addr = getattr(addresses, addr)
+        f = open(get_outfile(), 'r+b')
+        f.seek(addr)
+        f.write('\x00')
+        f.close()
 
     ChestObject.class_reseed('router')
     ir.assign_everything()
