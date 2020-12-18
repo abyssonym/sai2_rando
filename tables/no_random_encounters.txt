@@ -1,5 +1,11 @@
-003022: af 16 42 00
+003022: 22 00 b0 17
 :       c9 01
 :       d0 03
 :       a9 00 ea
 :       ea ea
+
+17b000: ea ea ea ea
+:       ea ea ea ea
+:       ea
+:       af 16 42 00
+:       6b
