@@ -1,6 +1,7 @@
 ChestObject             chest_table.txt             chest_pointers.txt
 EventChestObject        item_table.txt              event_chest_pointers.txt
 EventMemoryObject       item_table.txt              event_memory_pointers.txt
+BossMemoryObject        item_table.txt              boss_memory_pointers.txt
 EventMessageObject      message_table.txt           event_message_pointers.txt
 TechEntranceObject      tech_entrance_table.txt     tech_entrance_pointers.txt
 TechExitObject          tech_exit_table.txt         tech_exit_pointers.txt

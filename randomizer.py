@@ -100,7 +100,7 @@ class EventChestObject(TableObject):
         assert FIST <= self.old_data['item'] <= 0x474
 
 
-class EventMemoryObject(TableObject):
+class MemoryMixin(TableObject):
     @property
     def chest(self):
         chests = [c for c in EventChestObject
@@ -112,6 +112,10 @@ class EventMemoryObject(TableObject):
         self.item = self.chest.item
         assert FIST <= self.item <= 0x474
         assert FIST <= self.old_data['item'] <= 0x474
+
+
+class EventMemoryObject(MemoryMixin): pass
+class BossMemoryObject(MemoryMixin): pass
 
 
 class EventMessageObject(TableObject):
