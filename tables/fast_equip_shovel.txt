@@ -1,0 +1,52 @@
+001cbf: 22 40 b0 d7
+17b040:
+:       da              # phx
+:       ad fb 05
+:       c9 00 02
+:       d0 exit
+:       ad 59 04
+:       f0 exit
+:       ad 0c 01
+:       c9 0c 00
+:       f0 shovel_equipped
+:       e2 20
+:       8d 28 04
+:       c2 20
+:       22 ce 65 c0     # backup armor/shield
+:       9c 0a 01
+:       9c 0e 01
+:       a9 0c 00
+:       8d 0c 01
+:       80 cleanup
+.label shovel_equipped
+:       ad 28 04
+:       29 ff 00
+:       8d 0c 01
+:       22 3b 68 c0     # restore armor/shield
+.label cleanup
+.label exit
+:       fa              # plx
+:       bf fb 05 7e
+:       6b
+
+0065ce: 5c c0 b0 d7
+17b0c0: c2 20
+:       ad 0c 01
+:       c9 0c 00
+:       f0 end_backup
+:       ad 0a 01
+:       e2 20
+:       8d 27 04
+:       c2 20
+:       ad 0e 01
+:       8d 29 04
+.label end_backup
+:       6b
+
+00683b: 5c e0 b0 d7
+17b0e0: ad 27 04
+:       29 ff 00
+:       8d 0a 01
+:       ad 29 04
+:       8d 0e 01
+:       6b

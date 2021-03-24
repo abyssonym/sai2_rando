@@ -1,0 +1,50 @@
+021129: 22 00 b1 17
+:       ea ea
+17b100:
+: ad 64 04
+: f0 exit
+: ad fb 05
+: 89 02 00
+: d0 left_start
+: 89 01 00
+: d0 right_start
+: 80 exit
+
+.label left_start
+: ae 08 01          # load spell index
+.label left_loop
+: ca                # dex
+: e0 03 00          # cpx
+: f0 left_loop      # beq
+: e0 08 00          # cpx
+: 90 no_underflow   # blt
+: a2 07 00          # ldx
+.label no_underflow
+: e0 00 00
+: f0 cleanup        # beq
+: bd 75 04          # lda,x
+: f0 left_loop      # beq
+: 80 cleanup
+
+.label right_start
+: ae 08 01          # load spell index
+.label right_loop
+: e8                # inx
+: e0 03 00          # cpx
+: f0 right_loop     # beq
+: e0 08 00          # cpx
+: 90 no_overflow    # blt
+: a2 00 00          # ldx
+.label no_overflow
+: e0 00 00
+: f0 cleanup        # beq
+: bd 75 04          # lda,x
+: f0 right_loop     # beq
+: 80 cleanup
+
+.label cleanup
+: 8e 08 01
+.label exit
+: ad fb 05
+: 2d 14 01
+: 6b
