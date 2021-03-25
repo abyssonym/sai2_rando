@@ -1,2 +1,0 @@
-# This is a custom seed to start the game with a Power Sword.
-start_2cf10 0453

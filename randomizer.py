@@ -17,7 +17,7 @@ from traceback import format_exc
 from sys import argv
 
 
-VERSION = 2
+VERSION = 3
 FIST = 0x44d
 
 assigned_pointers = {}
@@ -389,6 +389,7 @@ if __name__ == '__main__':
             print ('\nThe following codes are available.\n'
                    'openworld  : Start with all gates lowered.\n'
                    'openrandom : Start with random gates lowered.\n'
+                   'custom     : Use a custom seed template.\n'
                    '\n'
                    'If you would like to use either of these codes, '
                    'type it here,')

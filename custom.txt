@@ -1,0 +1,127 @@
+# These are the item codes. Enter them in the locations where you want that
+# item to appear. For example, to start with a shovel:
+#
+# start_2cf10 0459
+#
+# For any location left blank, it will be randomized as normal, while trying
+# to keep the seed completable.
+#
+# 044e silversword
+# 044f firesword
+# 045b firearmor
+# 045c icearmor
+# 045d aquaarmor
+# 046a skybell
+# 046b lightstone
+# 046c sunstone
+# 046d starstone
+# 046e aquastone
+# 046f moonstone
+# 0450 icesword
+# 0451 thundersword
+# 0452 crystalsword
+# 0453 powersword
+# 0455 dagger
+# 0456 fireballs
+# 0458 ax
+# 0459 shovel
+# 0460 fireshield
+# 0461 iceshield
+# 0462 aquashield
+# 0464 magicwand
+# 0466 icebell
+# 0467 sunring
+# 0468 powerfan
+# 0469 elvenflute
+# 0470 thunderspell
+# 0471 starspell
+# 0472 sunspell
+# 0473 aquaspell
+# 0474 moonspell
+
+lightstone_10305
+starstone_116ec
+elvenflute_14159
+skybell_14c5c
+aquastone_16d70
+moonstone_17a91
+
+#poka isle: all verified
+health_18890
+dagger_18b47
+# this life bottle can be obtained with damage boosting
+health_18d8d
+500c_18dd0
+icesword_18e22
+1000c_18e3e
+silversword_18e78
+2000c_1907e
+fireballs_1909a
+lightspell_1911a
+
+sunstone_1a961
+powerfan_1a9d9
+
+downjab_2b9ef
+upjab_2ba05
+shove_2ba1b
+
+start_2cf10
+
+sunring_39179
+icebell_39348
+magicwand_394d7
+shovel_39db9
+
+# hiya isle: all verified
+firesword_fb562
+magic_fb57e
+health_fb59a
+fireshield_fb5b6
+health_fb5d2
+health_fb5ee
+firearmor_fb60a
+1000c_fb626
+# can get with sala_hiya, but sala_hiya requires shove anyway
+health_fb642
+starspell_fb659
+
+# boa isle: all verified
+iceshield_fc7b7
+magic_fc7ce
+magic_fc7e5
+1000c_fc7fc
+icearmor_fc813
+2000c_fc82a
+magic_fc841
+sunspell_fc894
+
+# puka isle: all verified
+500c_fd59b
+magic_fd5b2
+1000c_fd5c9
+magic_fd5e0
+magic_fd5f7
+health_fd60e
+1000c_fd625
+magic_fd63c
+aquaarmor_fd653
+thundersword_fd66a
+aquaspell_fd681
+
+# sala isle: all verified
+health_fe610
+2000c_fe627
+magic_fe63e
+crystalsword_fe655
+aquashield_fe66c
+magic_fe683
+magic_fe69a
+ax_fe6b1
+moonspell_fe704
+
+health_fef90
+5000c_fefa7
+magic_fefbe
+magic_fefd5
+powersword_fefec
