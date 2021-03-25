@@ -12,6 +12,7 @@ TechExitObject          tech_exit_table.txt         tech_exit_pointers.txt
 .option                     fast_select_magic.txt
 .patch                      instant_start.txt
 .patch                      space_save_patch.txt
+.patch                      chest_patch.txt
 $seed_write_addr            c8d84
 $seed_length                c
 $bonus_item_address         2cf10

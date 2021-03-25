@@ -13,6 +13,7 @@ from os import path
 from time import time, sleep, gmtime
 from collections import Counter
 from itertools import combinations
+from traceback import format_exc
 from sys import argv
 
 
@@ -76,8 +77,12 @@ class ChestObject(TableObject):
 
         unused_memory = set([])
         for c in ChestObject.every:
+            if c.old_data['memory'] > 0x51f:
+                continue
             if c.old_data['memory'] != c.old_data['item']:
                 unused_memory.add(c.old_data['memory'])
+        if 0x470 in unused_memory:
+            unused_memory.remove(0x470)
 
         ChestObject._unused_memory = sorted(unused_memory)
         return ChestObject.unused_memory
@@ -96,7 +101,7 @@ class ChestObject(TableObject):
 
 class EventChestObject(TableObject):
     def cleanup(self):
-        assert FIST <= self.item <= 0x474
+        assert FIST <= self.item <= 0x474 or 0x490 <= self.item <= 0x51f
         assert FIST <= self.old_data['item'] <= 0x474
 
 
@@ -110,8 +115,8 @@ class MemoryMixin(TableObject):
 
     def cleanup(self):
         self.item = self.chest.item
-        assert FIST <= self.item <= 0x474
-        assert FIST <= self.old_data['item'] <= 0x474
+        assert FIST <= self.item <= 0x51f
+        assert FIST <= self.old_data['item'] <= 0x51f
 
 
 class EventMemoryObject(MemoryMixin): pass
@@ -127,8 +132,10 @@ class EventMessageObject(TableObject):
         return chests[0]
 
     def cleanup(self):
-        self.code = self.chest.item - 0x44a
-        assert 0x3 <= self.code <= 0x2a
+        if hasattr(self.chest, 'message_code'):
+            self.code = self.chest.message_code
+        else:
+            self.code = self.chest.item - 0x44a
         assert 0x3 <= self.old_data['code'] <= 0x2a
 
 
@@ -348,9 +355,11 @@ def route_items():
     for c in ChestObject.every:
         if c.pointer not in assigned_pointers:
             set_item_by_pointer(5, c.pointer)
+
     for c in EventChestObject.every:
         if c.pointer not in assigned_pointers:
-            set_item_by_pointer(FIST, c.pointer)
+            c.item = ChestObject.unused_memory.pop()
+            c.message_code = 0x3
 
     spoiler_filename = '{0}_spoilers.txt'.format(get_seed_with_code())
     f = open(spoiler_filename, 'w+')
@@ -394,10 +403,11 @@ if __name__ == '__main__':
 
         write_seed_info()
         clean_and_write(ALL_OBJECTS)
+
         rewrite_snes_meta('SAI2-R', VERSION, lorom=False)
 
         finish_interface()
 
     except Exception, e:
-        print 'ERROR: %s' % e
+        print 'ERROR: %s' % format_exc()
         raw_input('Press Enter to close this program. ')

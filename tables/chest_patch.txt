@@ -1,0 +1,26 @@
+050306: 90 28
+:       8f 2c 8f 2c 8f 2c 90 28
+:       52 2c 5e 2c 58 2c 5d 2c 62 2c
+:       90 28
+
+005dea: 22 00 b2 d7
+17b200: ad 54 22
+:       c9 03 00
+:       d0 exit
+:       a2 06 00
+:       e2 30
+.label loop
+:       ca              # dex
+:       e0 07           # cpx
+:       b0 exit
+:       bd 35 04        # lda $0435+x
+:       c9 09   
+:       f0 loop
+:       1a
+:       9d 35 04        # sta $0435+x
+
+.label exit
+:       c2 30
+:       ad 54 22
+:       0a
+:       6b
