@@ -217,10 +217,7 @@ def write_bonus_item(item):
     write_multi(f, item, length=2)
     f.seek(addresses.bonus_item_value_address)
     value = 1
-    # protect Fist, No Armor, No Shield, and Do Not Use
-    if item + 1 in [0x44d, 0x45a, 0x45f, 0x465]:
-        value |= 0x100
-    write_multi(f, value, length=2)
+    write_multi(f, value, length=1)
     f.close()
 
 

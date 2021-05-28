@@ -15,8 +15,8 @@ TechExitObject          tech_exit_table.txt         tech_exit_pointers.txt
 .patch                      chest_patch.txt
 $seed_write_addr            c8d84
 $seed_length                c
-$bonus_item_address         2cf10
-$bonus_item_value_address   2cf0c
+$bonus_item_address         2cf18
+$bonus_item_value_address   2cf16
 $light_gate_address         2b281
 $sun_gate_address           2b316
 $star_gate_address          2b3ab
