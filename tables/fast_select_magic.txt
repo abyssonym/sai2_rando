@@ -4,6 +4,11 @@
 : ad 64 04
 : f0 exit
 : ad fb 05
+: 89 03 00
+: f0 exit
+: 22 4b 6d c0
+: c2 20
+: ad fb 05
 : 89 02 00
 : d0 left_start
 : 89 01 00
@@ -23,6 +28,7 @@
 : e0 00 00
 : f0 cleanup        # beq
 : bd 75 04          # lda,x
+: 29 ff 00          # and #00ff
 : f0 left_loop      # beq
 : 80 cleanup
 
@@ -39,6 +45,7 @@
 : e0 00 00
 : f0 cleanup        # beq
 : bd 75 04          # lda,x
+: 29 ff 00          # and #00ff
 : f0 right_loop     # beq
 : 80 cleanup
 
