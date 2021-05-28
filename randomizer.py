@@ -17,7 +17,7 @@ from traceback import format_exc
 from sys import argv
 
 
-VERSION = 3
+VERSION = 4
 FIST = 0x44d
 
 assigned_pointers = {}
