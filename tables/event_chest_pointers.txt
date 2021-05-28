@@ -10,5 +10,6 @@
 116ec 046d starstone
 16d70 046e aquastone
 17a91 046f moonstone
+#19b58 0471 starspell
 fc894 0472 sunspell
 fe704 0474 moonspell

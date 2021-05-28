@@ -22,6 +22,7 @@ $sun_gate_address           2b316
 $star_gate_address          2b3ab
 $aqua_gate_address          2b440
 $moon_gate_address          2b4d5
+$star_spell_duplicate_check 19b58
 #.patch                      start_all_gates.txt
 #.patch                      start_all_items.txt
 #.patch                      start_all_money.txt

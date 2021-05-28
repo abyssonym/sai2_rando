@@ -77,7 +77,7 @@ class ChestObject(TableObject):
 
         unused_memory = set([])
         for c in ChestObject.every:
-            if c.old_data['memory'] > 0x51f:
+            if c.old_data['memory'] >= 0x51f:
                 continue
             if c.old_data['memory'] != c.old_data['item']:
                 unused_memory.add(c.old_data['memory'])
@@ -98,10 +98,21 @@ class ChestObject(TableObject):
             assert 0x44e <= self.item <= 0x474
             self.memory = self.item
 
+        if self.old_data['item'] == 0x471:
+            assert self.old_data['memory'] == 0x51f
+            f = open(get_outfile(), 'r+b')
+            f.seek(addresses.star_spell_duplicate_check)
+            memory = read_multi(f, length=2)
+            assert memory == self.old_data['memory']
+            assert self.memory != memory
+            f.seek(addresses.star_spell_duplicate_check)
+            write_multi(f, self.memory, length=2)
+            f.close()
+
 
 class EventChestObject(TableObject):
     def cleanup(self):
-        assert FIST <= self.item <= 0x474 or 0x490 <= self.item <= 0x51f
+        assert FIST <= self.item <= 0x474 or 0x490 <= self.item <= 0x51e
         assert FIST <= self.old_data['item'] <= 0x474
 
 
@@ -115,8 +126,8 @@ class MemoryMixin(TableObject):
 
     def cleanup(self):
         self.item = self.chest.item
-        assert FIST <= self.item <= 0x51f
-        assert FIST <= self.old_data['item'] <= 0x51f
+        assert FIST <= self.item <= 0x51e
+        assert FIST <= self.old_data['item'] <= 0x51e
 
 
 class EventMemoryObject(MemoryMixin): pass
